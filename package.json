@@ -5,14 +5,12 @@
   "license": "MIT",
   "author": "Nguyễn Trường Minh <nguyentruongminh2510@gmail.com>",
   "scripts": {
-    "build": "next build && next export && pnpm rename",
+    "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
     "prepare": "husky install",
     "release": "release-it",
     "start": "next start",
-    "export": "next export",
-    "rename": "node -e \"require('fs').rename('out', '_static', function(err) { if (err) console.log(err); console.log('File successfully renamed!') })\"",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
