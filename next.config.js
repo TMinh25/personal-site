@@ -20,7 +20,7 @@ module.exports = withContentlayer({
   },
   images: {
     loader: "cloudinary",
-    path: "https://truongminh.pages.dev/images",
+    path: "https://nguyentruongminh.pages.dev/images/",
   },
   async redirects() {
     return [
