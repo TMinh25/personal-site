@@ -164,24 +164,24 @@ const Articles: FC<Props> = ({
         </VStack>
       );
     }
-
+    // TODO: change the <a> tag if article won't open
     return sortedArticles.map((article: Article, index) => {
       if (!article.slug) {
         return (
           <Box key={index}>
-            <a
+            {/* <a
               href={article.url}
               target="_blank"
               rel="nofollow noopener noreferrer"
-            >
-              <Box>
-                <VStack spacing={1} align="left">
-                  {metaNode(article.date, "publication")}
-                  {titleNode(article.title)}
-                  {descriptionNode(article.description)}
-                </VStack>
-              </Box>
-            </a>
+            > */}
+            <Box>
+              <VStack spacing={1} align="left">
+                {metaNode(article.date, "publication")}
+                {titleNode(article.title)}
+                {descriptionNode(article.description)}
+              </VStack>
+            </Box>
+            {/* </a> */}
           </Box>
         );
       }
