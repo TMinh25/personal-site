@@ -1,6 +1,7 @@
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme, ScaleFade } from "@chakra-ui/react";
 import Container from "components/layouts/container";
 import React, { FC, ReactNode } from "react";
+import { useRouter } from "next/router";
 
 export const customTheme = extendTheme({
   config: {
@@ -18,9 +19,13 @@ interface IProps {
 }
 
 const Layout: FC<IProps> = ({ children }) => {
+  const router = useRouter();
+
   return (
     <ChakraProvider theme={customTheme}>
-      <Container>{children}</Container>
+      <ScaleFade key={router.route} initialScale={0.95} in={true}>
+        <Container>{children}</Container>
+      </ScaleFade>
     </ChakraProvider>
   );
 };
