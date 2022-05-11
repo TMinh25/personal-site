@@ -18,6 +18,10 @@ module.exports = withContentlayer({
 
     return config;
   },
+  images: {
+    loader: "cloudinary",
+    path: "https://truongminh.pages.dev/images",
+  },
   async redirects() {
     return [
       {
