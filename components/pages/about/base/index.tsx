@@ -2,7 +2,36 @@ import { Box, Heading, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import AvatarImage from "public/images/common/avatar.png";
 import { FC } from "react";
-import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
+import { IconType } from "react-icons";
+import { IoLogoFacebook, IoLogoGithub, IoLogoInstagram } from "react-icons/io";
+import { CgSmileNone } from "react-icons/cg";
+
+const SocialButton: FC<{
+  href: string;
+  bg: string;
+  icon?: IconType;
+  label: string;
+}> = ({ href, bg, icon, label }) => {
+  return (
+    <Link
+      py={2}
+      px={4}
+      href={href}
+      rounded="sm"
+      bg={bg}
+      color="#fff"
+      fontWeight="bold"
+      isExternal
+      borderWidth={1}
+      borderColor="gray.600"
+      _hover={{}}
+    >
+      <HStack spacing={2} alignItems="center">
+        <Box as={icon ?? CgSmileNone} /> <Text>{label}</Text>
+      </HStack>
+    </Link>
+  );
+};
 
 const Page: FC = () => {
   const headingNode = () => {
@@ -17,7 +46,7 @@ const Page: FC = () => {
         >
           <Image
             src={AvatarImage}
-            alt="Nirmalya Ghosh"
+            alt="Nguyễn Trường Minh"
             height={100}
             width={100}
             quality={100}
@@ -28,7 +57,7 @@ const Page: FC = () => {
         <Box>
           <VStack spacing={2} align="left">
             <Heading as="h1" size="lg" color="white">
-              Nirmalya Ghosh
+              Nguyễn Trường Minh
             </Heading>
             <Text fontWeight="bold">Software Engineer</Text>
           </VStack>
@@ -42,7 +71,7 @@ const Page: FC = () => {
       <Box className="article">
         <Text fontWeight="bold">
           Computer Science Engineer having interest in web-designing and
-          development with an eye for detail.
+          development.
         </Text>
       </Box>
     );
@@ -52,40 +81,24 @@ const Page: FC = () => {
     return (
       <Box d="flex" alignItems="center">
         <HStack spacing={4}>
-          <Link
-            py={2}
-            px={4}
-            href="https://github.com/ghoshnirmalya"
-            rounded="sm"
+          <SocialButton
+            href="https://github.com/TMinh25"
             bg="#333"
-            color="#fff"
-            fontWeight="bold"
-            isExternal
-            borderWidth={1}
-            borderColor="gray.600"
-            _hover={{}}
-          >
-            <HStack spacing={2} alignItems="center">
-              <Box as={IoLogoGithub} /> <Text>Github</Text>
-            </HStack>
-          </Link>
-          <Link
-            py={2}
-            px={4}
-            href="https://www.linkedin.com/in/ghoshnirmalya/"
-            rounded="sm"
-            bg="#0e76a8"
-            color="#fff"
-            fontWeight="bold"
-            isExternal
-            borderWidth={1}
-            borderColor="blue.400"
-            _hover={{}}
-          >
-            <HStack spacing={2} alignItems="center">
-              <Box as={IoLogoLinkedin} /> <Text>LinkedIn</Text>
-            </HStack>
-          </Link>
+            icon={IoLogoGithub}
+            label="Github"
+          />
+          <SocialButton
+            href="https://www.facebook.com/sipp.minhh"
+            bg="#2374E1"
+            icon={IoLogoFacebook}
+            label="Facebook"
+          />
+          <SocialButton
+            href="https://www.instagram.com/not.gr4y/"
+            bg="#EF4E6D"
+            icon={IoLogoInstagram}
+            label="Instagram"
+          />
         </HStack>
       </Box>
     );

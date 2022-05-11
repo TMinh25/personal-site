@@ -14,13 +14,12 @@ import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import Link from "next/link";
 import { FC, useState } from "react";
-import Publication from "types/publication";
 import { IoIosLink } from "react-icons/io";
 
 dayjs.extend(localizedFormat);
 
 interface Props {
-  articles: (Article & Publication)[] | Article[];
+  articles: Article[] | Article[];
   hideViewAllLinksNode?: boolean;
   currentTag?: string;
   currentCategory?: string;
@@ -38,7 +37,7 @@ const Articles: FC<Props> = ({
 
   const sortedArticles = articles
     .sort(
-      (a: Article & Publication, b: Article & Publication) =>
+      (a: Article, b: Article) =>
         Number(new Date(b.date)) - Number(new Date(a.date))
     )
     .filter((article: Article) =>
@@ -166,7 +165,7 @@ const Articles: FC<Props> = ({
       );
     }
 
-    return sortedArticles.map((article: Article & Publication, index) => {
+    return sortedArticles.map((article: Article, index) => {
       if (!article.slug) {
         return (
           <Box key={index}>

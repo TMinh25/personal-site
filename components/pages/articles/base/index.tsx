@@ -2,7 +2,6 @@ import { Box } from "@chakra-ui/react";
 import { Article } from "contentlayer/generated";
 import dynamic from "next/dynamic";
 import { FC } from "react";
-import Publication from "types/publication";
 
 const Articles = dynamic(
   () => import(/* webpackChunkName: "Articles" */ "components/layouts/articles")
@@ -10,21 +9,15 @@ const Articles = dynamic(
 
 interface Props {
   articles: Article[];
-  publications: Publication[];
 }
 
-const Page: FC<Props> = ({ articles = [], publications = [] }) => {
-  const allArticlesAndPublications = [
-    ...articles,
-    ...publications,
-  ] as (Article & Publication)[];
+const Page: FC<Props> = ({ articles = [] }) => {
+  const allArticlesAndPublications = [...articles] as Article[];
 
-  const sortedAllArticlesAndPublications: (Article & Publication)[] =
-    allArticlesAndPublications.sort(
-      (a: Article & Publication, b: Article & Publication) => {
-        return Number(new Date(b.date)) - Number(new Date(a.date));
-      }
-    );
+  const sortedAllArticlesAndPublications: Article[] =
+    allArticlesAndPublications.sort((a: Article, b: Article) => {
+      return Number(new Date(b.date)) - Number(new Date(a.date));
+    });
 
   return (
     <Box as="main" maxW="2xl" mx="auto" p={8}>

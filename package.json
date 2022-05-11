@@ -1,9 +1,9 @@
 {
   "private": false,
   "name": "portfolio",
-  "description": "Personal portfolio of Nirmalya Ghosh",
+  "description": "Personal portfolio of Nguyễn Trường Minh",
   "license": "MIT",
-  "author": "Nirmalya Ghosh <nirmalya.email@gmail.com>",
+  "author": "Nguyễn Trường Minh <nguyentruongminh2510@gmail.com>",
   "scripts": {
     "build": "next build",
     "dev": "next dev",

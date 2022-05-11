@@ -16,7 +16,7 @@ const ArticlesIndexPage: NextPage<IProps> = ({ articles }) => {
       <Head>
         <title>Articles</title>
       </Head>
-      <Page articles={articles} publications={publications} />
+      <Page articles={articles} />
     </>
   );
 };

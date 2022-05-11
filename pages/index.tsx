@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const IndexPage: NextPage<IProps> = ({ articles, projects }) => {
-  return <Page articles={articles} projects={projects} />;
+  return <Page projects={projects} articles={articles} />;
 };
 
 export const getStaticProps: GetStaticProps = async () => {

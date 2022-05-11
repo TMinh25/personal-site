@@ -8,9 +8,9 @@ const globby = require("globby");
   const sitemap = `
     <rss version="2.0">
       <channel>
-        <title>Blog by Nirmalya Ghosh</title>
+        <title>Blog by Nguyễn Trường Minh</title>
         <link>https://www.nirmalyaghosh.com</link>
-        <description>Personal portfolio of Nirmalya Ghosh</description>
+        <description>Personal portfolio of Nguyễn Trường Minh</description>
         <language>en</language>
         ${pages
           .map((page) => {

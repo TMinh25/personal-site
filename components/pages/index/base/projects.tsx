@@ -4,10 +4,14 @@ import {
   Link as ChakraLink,
   Text,
   VStack,
+  HStack,
+  Tooltip,
+  Icon,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { FC, useState } from "react";
 import Project from "types/project";
+import { IoLogoGithub } from "react-icons/io";
 
 interface Props {
   projects: Project[];
@@ -27,24 +31,33 @@ const Projects: FC<Props> = ({
     if (hideViewAllLinksNode) return false;
 
     return (
-      <Link href="/projects" passHref>
-        <ChakraLink
-          p={2}
-          href="/projects"
-          rounded="sm"
-          fontSize="sm"
-          borderWidth={1}
-          borderColor="transparent"
-          _hover={{
-            textDecoration: "none",
-            borderWidth: 1,
-            borderColor: "gray.700",
-            bg: "gray.900",
-          }}
-        >
-          <Box color="gray.300">View all projects</Box>
-        </ChakraLink>
-      </Link>
+      <HStack>
+        <Link href="/projects" passHref>
+          <ChakraLink
+            p={2}
+            href="/projects"
+            rounded="sm"
+            fontSize="sm"
+            borderWidth={1}
+            borderColor="transparent"
+            _hover={{
+              textDecoration: "none",
+              borderWidth: 1,
+              borderColor: "gray.700",
+              bg: "gray.900",
+            }}
+          >
+            <Box color="gray.300">View all projects</Box>
+          </ChakraLink>
+        </Link>
+        <a href="https://github.com/TMinh25" target="_blank" rel="noreferrer">
+          <Tooltip label={"View on Github"}>
+            <Box color="gray.300">
+              <Icon as={IoLogoGithub} />
+            </Box>
+          </Tooltip>
+        </a>
+      </HStack>
     );
   };
 
