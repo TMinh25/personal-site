@@ -11,7 +11,7 @@ const siteConfig = {
     favicon: "/images/common/favicon.svg",
   },
   socialLinks: {
-    // twitter: "@nirmalyaghosh23",
+    twitter: "@minhsip2510",
   },
 };
 
