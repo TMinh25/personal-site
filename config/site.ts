@@ -7,7 +7,7 @@ const siteConfig = {
     url: "https://www.nguyentruongminh.pages.dev",
   },
   assets: {
-    avatar: "/images/common/seoCover.png",
+    seoCover: "/images/common/seoCover.png",
     favicon: "/images/common/favicon.svg",
   },
   socialLinks: {
